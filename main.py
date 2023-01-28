@@ -19,5 +19,9 @@ response = requests.get(
 # Raise exception for unsuccessful status code (anything other than 200)
 response.raise_for_status()
 data = response.json()
-sunrise = data["results"]["sunrise"]
-sunset = data["results"]["sunset"]
+
+# Only save the hour from the entire date format to variables:
+sunrise = data["results"]["sunrise"].split("T")[1].split(":")[0]
+sunset = data["results"]["sunset"].split("T")[1].split(":")[0]
+
+time_now = datetime.now()
