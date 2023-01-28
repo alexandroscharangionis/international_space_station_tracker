@@ -1,1 +1,1 @@
-# international_space_station_tracker
+# International Space Station tracker & email notifier using sunrise-sunset & ISS APIs
