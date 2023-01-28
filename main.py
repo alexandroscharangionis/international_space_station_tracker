@@ -25,8 +25,8 @@ sun_data = sun_response.json()
 iss_data = iss_response.json()
 
 # Only save the hour from the entire date format to variables:
-sunrise = sun_data["results"]["sunrise"].split("T")[1].split(":")[0]
-sunset = sun_data["results"]["sunset"].split("T")[1].split(":")[0]
+sunrise = int(sun_data["results"]["sunrise"].split("T")[1].split(":")[0])
+sunset = int(sun_data["results"]["sunset"].split("T")[1].split(":")[0])
 
 iss_latitude = float(iss_data["iss_position"]["latitude"])
 iss_longitude = float(iss_data["iss_position"]["longitude"])
