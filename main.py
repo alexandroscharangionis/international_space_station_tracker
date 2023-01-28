@@ -15,13 +15,20 @@ location_parameters = {
 # Make request and get response from API endpoint:
 sun_response = requests.get(
     "https://api.sunrise-sunset.org/json", params=location_parameters)
+iss_response = requests.get("http://api.open-notify.org/iss-now.json")
 
 # Raise exception for unsuccessful status code (anything other than 200)
 sun_response.raise_for_status()
-data = sun_response.json()
+iss_response.raise_for_status()
+
+sun_data = sun_response.json()
+iss_data = iss_response.json()
 
 # Only save the hour from the entire date format to variables:
-sunrise = data["results"]["sunrise"].split("T")[1].split(":")[0]
-sunset = data["results"]["sunset"].split("T")[1].split(":")[0]
+sunrise = sun_data["results"]["sunrise"].split("T")[1].split(":")[0]
+sunset = sun_data["results"]["sunset"].split("T")[1].split(":")[0]
+
+iss_latitude = float(iss_data["iss_position"]["latitude"])
+iss_longitude = float(iss_data["iss_position"]["longitude"])
 
 time_now = datetime.now()
