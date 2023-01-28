@@ -49,10 +49,10 @@ def is_iss_overhead():
 
 
 while True:
-  time.sleep(60)
-  if is_night and is_iss_overhead:
-      with smtplib.SMTP("smtp.gmail.com", 587) as connection:
-          connection.starttls()
-          connection.login(user=MY_EMAIL, password=MY_PASSWORD)
-          connection.sendmail(from_addr=MY_EMAIL,
-                              to_addrs="alexandroscharangionis@gmail.com", msg=f"Subject:ISS Location Alert 🛰️\n\nLook up, it's dark and the International Space Station is flying above!"
+    time.sleep(60)
+    if is_night and is_iss_overhead:
+        with smtplib.SMTP("smtp.gmail.com", 587) as connection:
+            connection.starttls()
+            connection.login(user=MY_EMAIL, password=MY_PASSWORD)
+            connection.sendmail(from_addr=MY_EMAIL,
+                                to_addrs="alexandroscharangionis@gmail.com", msg="Subject:ISS Location Alert\n\nLook up, it's dark and the International Space Station is flying above!")
