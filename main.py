@@ -17,3 +17,6 @@ response = requests.get(
 # Raise exception for unsuccessful status code (anything other than 200)
 response.raise_for_status()
 data = response.json()
+sunrise = data["results"]["sunrise"]
+sunset = data["results"]["sunset"]
+print(sunrise, sunset)
