@@ -13,12 +13,12 @@ location_parameters = {
 }
 
 # Make request and get response from API endpoint:
-response = requests.get(
+sun_response = requests.get(
     "https://api.sunrise-sunset.org/json", params=location_parameters)
 
 # Raise exception for unsuccessful status code (anything other than 200)
-response.raise_for_status()
-data = response.json()
+sun_response.raise_for_status()
+data = sun_response.json()
 
 # Only save the hour from the entire date format to variables:
 sunrise = data["results"]["sunrise"].split("T")[1].split(":")[0]
